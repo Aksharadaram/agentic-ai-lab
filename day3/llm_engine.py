@@ -1,28 +1,42 @@
+
+from dotenv import load_dotenv
+import os
+from groq import Groq
+
+load_dotenv(override=True)
+print("DEBUG GROQ KEY:", os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
 def decide_tool_with_llm(user_input):
-    user_input = user_input.lower().strip()
+    prompt = f"""
+Choose one tool:
+- calculate
+- date
+- weather
+- summarize
 
-    # Simulated reasoning layer
+Return ONLY:
+tool: <tool_name>
+input: <input>
 
-    # Calculation detection
-    if any(op in user_input for op in ["+", "-", "*", "/"]) or "calculate" in user_input:
-        expression = user_input.replace("calculate", "").strip()
-        return "calculate", expression
+User: {user_input}
+"""
 
-    # Date detection
-    elif "date" in user_input or "today" in user_input:
-        return "date", ""
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[{"role": "user", "content": prompt}]
+    )
 
-    # Weather detection
-    elif "weather" in user_input:
-        words = user_input.split()
-        city = words[-1] if len(words) > 1 else "unknown"
-        return "weather", city
+    output = response.choices[0].message.content
 
-    # Summarization detection
-    elif "summarize" in user_input or "summary" in user_input:
-        text = user_input.replace("summarize", "").replace("summary", "").strip()
-        return "summarize", text
+    return parse_output(output)
 
-    # Unknown intent
-    else:
+
+def parse_output(output):
+    try:
+        lines = output.strip().split("\n")
+        tool = lines[0].replace("tool:", "").strip().lower()
+        tool_input = lines[1].replace("input:", "").strip()
+        return tool, tool_input
+    except:
         return "unknown", ""

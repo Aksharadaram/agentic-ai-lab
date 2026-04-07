@@ -8,6 +8,7 @@ def run_agent():
         user_input = get_input()
 
         tool_name, tool_input = decide_tool_with_llm(user_input)
+        print("DEBUG:", tool_name, tool_input)
 
         if tool_name in TOOLS:
             tool = TOOLS[tool_name]

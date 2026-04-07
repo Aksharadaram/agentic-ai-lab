@@ -1,0 +1,32 @@
+INPUT: average 10+10+30
+PLAN: []
+OUTPUT: 
+----------------------------------------
+INPUT: average 10,10,10
+PLAN: []
+OUTPUT: 
+----------------------------------------
+INPUT: 
+PLAN: []
+OUTPUT: 
+----------------------------------------
+INPUT: 
+PLAN: []
+OUTPUT: 
+----------------------------------------
+INPUT: average of 10,10,10
+PLAN: ['average']
+OUTPUT: Average: 10.0
+----------------------------------------
+INPUT: average 10,20
+PLAN: ['average']
+OUTPUT: Average: 15.0
+----------------------------------------
+INPUT: what is the date today
+PLAN: ['time']
+OUTPUT: Current Time: 23:45:17
+----------------------------------------
+INPUT: 
+PLAN: []
+OUTPUT: 
+----------------------------------------
