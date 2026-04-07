@@ -16,10 +16,6 @@ This assignment implements a **monolithic agent**, where decision-making and exe
 
 ---
 
-## Implementation Approach
-
-The entire agent is implemented in a **single Python file**, but logically divided into sections:
-
 ### 1. Input Handler
 
 * Takes user input
