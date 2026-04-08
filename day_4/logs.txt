@@ -1,0 +1,38 @@
+INPUT: Enter query: Find average of 5, 10, 15 and summarize
+STEPS: []
+OUTPUT:
+----------------------------------------
+INPUT: Find average of 5, 10, 15 and summarize
+STEPS: ['average', 'summarize']
+OUTPUT:
+[Step 1] Average: No numbers found
+[Step 2] Summary: The result is No numbers found, which represents the computed value.
+----------------------------------------
+INPUT: Find average of 5, 10, 15 and summarize
+STEPS: ['extract_numbers', 'average', 'summarize']
+OUTPUT:
+[Step 1] Extracted numbers: [5, 10, 15]
+[Step 2] Average: 10.0
+[Step 3] Summary: The result is 10.0, which represents the computed value.
+----------------------------------------
+INPUT: finf average
+STEPS: ['extract_numbers', 'average']
+OUTPUT:
+[Step 1] Extracted numbers: []
+[Step 2] Average: No numbers found
+----------------------------------------
+INPUT: tell me a joke
+STEPS: []
+OUTPUT:
+----------------------------------------
+INPUT: find the average of 10,10,10
+STEPS: ['extract_numbers', 'average', 'sum']
+OUTPUT:
+[Step 1] Extracted numbers: [10, 10, 10]
+[Step 2] Average: 10.0
+[Step 3] Sum: 30
+----------------------------------------
+INPUT: what is the date
+STEPS: []
+OUTPUT:
+----------------------------------------

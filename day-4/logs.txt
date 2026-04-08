@@ -30,3 +30,23 @@ INPUT:
 PLAN: []
 OUTPUT: 
 ----------------------------------------
+INPUT: find the average of 10,10,10
+PLAN: ['calculator']
+OUTPUT: Result: 101010
+----------------------------------------
+INPUT: calculate 10+20
+PLAN: ['calculator']
+OUTPUT: Result: 30
+----------------------------------------
+INPUT: average 10,10,10
+PLAN: []
+OUTPUT: 
+----------------------------------------
+INPUT: what is the time 
+PLAN: ['time']
+OUTPUT: Current Time: 16:14:29
+----------------------------------------
+INPUT: find the average of 5, 10, 15 and summarize the result
+PLAN: ['calculator']
+OUTPUT: Invalid calculation
+----------------------------------------

@@ -1,15 +1,11 @@
 from datetime import datetime
 
-# =========================
-# INPUT HANDLER
-# =========================
+
 def get_input():
     return input("Enter command: ").strip().lower()
 
 
-# =========================
-# DECISION ENGINE
-# =========================
+
 def decide_intent(user_input):
     if "hello" in user_input:
         return "greet"
@@ -21,9 +17,7 @@ def decide_intent(user_input):
         return "unknown"
 
 
-# =========================
-# ACTIONS
-# =========================
+
 def greet():
     return "Hello! How can I help you?"
 
@@ -37,9 +31,6 @@ def calculate(expression):
         return "Invalid calculation"
 
 
-# =========================
-# AGENT (CONTROLLER)
-# =========================
 def run_agent():
     while True:
         user_input = get_input()
@@ -59,8 +50,5 @@ def run_agent():
             print("Sorry, I don't understand.")
 
 
-# =========================
-# MAIN ENTRY
-# =========================
 if __name__ == "__main__":
     run_agent()
